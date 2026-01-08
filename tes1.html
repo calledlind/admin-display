@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel - Mam's Bakery</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f3bfb0;
+}
+.wrapper{
+    max-width:1200px;
+    margin:auto;
+}
+.header{
+    background:#b58cff;
+    color:white;
+    padding:15px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.header h2{margin:0;}
+.sidebar{
+    width:220px;
+    background:#a569bd;
+    min-height:calc(100vh - 70px);
+    padding:15px;
+}
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    margin-bottom:10px;
+    padding:10px;
+    border-radius:5px;
+}
+.sidebar a:hover{
+    background:#8e44ad;
+}
+.main{
+    flex:1;
+    padding:20px;
+}
+.content{
+    display:flex;
+}
+.box{
+    background:#e8ffff;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+.box h3{
+    margin-top:0;
+    background:#a569bd;
+    color:white;
+    padding:8px;
+    border-radius:5px;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+th,td{
+    border:1px solid #ccc;
+    padding:8px;
+    text-align:center;
+}
+button{
+    padding:7px 12px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+.btn-add{background:#6ab04c;color:white;}
+.btn-del{background:#d63031;color:white;}
+input{
+    width:100%;
+    padding:8px;
+    margin-bottom:8px;
+}
+footer{
+    background:#ffe066;
+    text-align:center;
+    padding:15px;
+}
+section{display:none;}
+.active{display:block;}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>Admin Panel - Mam's Bakery</h2>
+    <span>Login sebagai <b>Admin</b></span>
+</div>
+
+<div class="wrapper">
+<div class="content">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <a onclick="show('dashboard')">Dashboard</a>
+    <a onclick="show('produk')">Kelola Produk</a>
+    <a onclick="show('pesanan')">Pesanan</a>
+    <a onclick="logout()">Logout</a>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="active">
+<div class="box">
+    <h3>Dashboard</h3>
+    <p>Total Produk: <b>6</b></p>
+    <p>Total Pesanan: <b>12</b></p>
+    <p>Total Pendapatan: <b>Rp 60.000</b></p>
+</div>
+</section>
+
+<!-- PRODUK -->
+<section id="produk">
+<div class="box">
+    <h3>Kelola Produk</h3>
+
+    <input placeholder="Nama Produk">
+    <input placeholder="Harga">
+    <button class="btn-add">Tambah Produk</button>
+
+    <br><br>
+
+    <table>
+        <tr>
+            <th>Produk</th>
+            <th>Harga</th>
+            <th>Aksi</th>
+        </tr>
+        <tr>
+            <td>Cheesecake</td>
+            <td>Rp 5.000</td>
+            <td><button class="btn-del">Hapus</button></td>
+        </tr>
+        <tr>
+            <td>Tiramisu</td>
+            <td>Rp 5.000</td>
+            <td><button class="btn-del">Hapus</button></td>
+        </tr>
+    </table>
+</div>
+</section>
+
+<!-- PESANAN -->
+<section id="pesanan">
+<div class="box">
+    <h3>Data Pesanan</h3>
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>Produk</th>
+            <th>Total</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Ani</td>
+            <td>Cheesecake</td>
+            <td>Rp 10.000</td>
+            <td>Menunggu</td>
+        </tr>
+        <tr>
+            <td>Budi</td>
+            <td>Tiramisu</td>
+            <td>Rp 5.000</td>
+            <td>Selesai</td>
+        </tr>
+    </table>
+</div>
+</section>
+
+</div>
+</div>
+</div>
+
+<footer>© 2025 Mam's Bakery</footer>
+
+<script>
+function show(id){
+    document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+function logout(){
+    alert("Logout berhasil");
+    location.href="index.html";
+}
+</script>
+
+</body>
+</html>
